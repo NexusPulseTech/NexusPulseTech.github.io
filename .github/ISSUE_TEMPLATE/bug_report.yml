@@ -1,0 +1,47 @@
+name: Website issue
+description: Report something broken or wrong on nexuspulsetech.github.io
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Describe what you see, and what you expected instead.
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The URL or section where you saw it.
+      placeholder: https://nexuspulsetech.github.io/#services
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Desktop
+        - Mobile
+        - Tablet
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: Chrome 140, Safari 18
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Paste an image if you have one.
+    validations:
+      required: false
