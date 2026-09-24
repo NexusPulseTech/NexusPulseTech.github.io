@@ -612,6 +612,13 @@ ul {
   padding-top: 24px;
 }
 
+.work-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .stack span {
   padding: 5px 12px;
   border: 1px solid var(--line);
