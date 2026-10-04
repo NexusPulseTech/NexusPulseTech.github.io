@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/NexusPulseTech/NexusPulseTech.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/NexusPulseTech/NexusPulseTech.github.io/actions/workflows/ci.yml)
 
-Source of [nexuspulsetech.github.io](https://nexuspulsetech.github.io), the NexusPulse company site.
+Source of [www.nexuspulsetech.xyz](https://www.nexuspulsetech.xyz/), the NexusPulse company site.
 
 A static site with no build step, served by GitHub Pages from `main`. Fonts, icons and styles are committed to the repository, so the site has no runtime dependency on any CDN.
 

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Source of the NexusPulse website",
-  "homepage": "https://nexuspulsetech.github.io",
+  "homepage": "https://www.nexuspulsetech.xyz/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NexusPulseTech/NexusPulseTech.github.io.git"

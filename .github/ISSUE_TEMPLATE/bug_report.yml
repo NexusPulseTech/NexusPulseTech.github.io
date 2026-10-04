@@ -1,5 +1,5 @@
 name: Website issue
-description: Report something broken or wrong on nexuspulsetech.github.io
+description: Report something broken or wrong on www.nexuspulsetech.xyz
 labels: ["bug"]
 body:
   - type: textarea
@@ -15,7 +15,7 @@ body:
     attributes:
       label: Page
       description: The URL or section where you saw it.
-      placeholder: https://nexuspulsetech.github.io/#services
+      placeholder: https://www.nexuspulsetech.xyz/#services
     validations:
       required: true
 
