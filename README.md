@@ -13,7 +13,7 @@ A static site with no build step, served by GitHub Pages from `main`. Fonts, ico
 | `index.html` | Home page. English by default, Vietnamese via the language switch or `?lang=vi` |
 | `404.html` | Not found page |
 | `assets/css/styles.css` | Styles, light and dark mode |
-| `assets/js/main.js` | Language switch, mobile menu, scroll animations |
+| `assets/js/main.js` | Language switch, mobile menu, scroll animations, capabilities marquee |
 | `assets/fonts/` | Inter, subset for Latin and Vietnamese (SIL Open Font License 1.1) |
 | `assets/img/` | Logo and the social sharing image |
 | `scripts/check-links.mjs` | Verifies every local link, anchor and asset reference |

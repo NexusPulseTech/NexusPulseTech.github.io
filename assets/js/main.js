@@ -131,7 +131,35 @@
     for (var j = 0; j < items.length; j++) observer.observe(items[j]);
   }
 
+  function setupMarquee() {
+    var marquee = document.querySelector(".marquee");
+    if (!marquee) return;
+
+    // A second copy makes the loop seamless. It is hidden from assistive tech
+    // and taken out of the tab order, so the content is announced only once.
+    var tracks = marquee.querySelectorAll(".marquee-track");
+    for (var i = 0; i < tracks.length; i++) {
+      var copy = tracks[i].cloneNode(true);
+      copy.setAttribute("aria-hidden", "true");
+      copy.setAttribute("inert", "");
+      tracks[i].parentNode.appendChild(copy);
+    }
+
+    // WCAG 2.2.2: moving content needs a pause control, not only hover.
+    var toggle = marquee.querySelector(".marquee-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        var paused = toggle.getAttribute("aria-pressed") !== "true";
+        toggle.setAttribute("aria-pressed", String(paused));
+        marquee.setAttribute("data-paused", String(paused));
+      });
+    }
+
+    marquee.classList.add("is-ready");
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    setupMarquee(); // before setupLanguage so the copies are translated too
     setupLanguage();
     setupMenu();
     setupReveal();

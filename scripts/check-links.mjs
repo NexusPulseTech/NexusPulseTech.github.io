@@ -60,8 +60,10 @@ for (const page of pages) {
       continue;
     }
 
-    const target = toDiskPath(page, ref);
+    let target = toDiskPath(page, ref);
     if (!target) continue;
+    // A directory link is served as its index.html, like GitHub Pages does.
+    if (existsSync(target) && statSync(target).isDirectory()) target = join(target, "index.html");
     if (!existsSync(target)) {
       problems.push(`${page}: ${ref} does not exist`);
     } else if (statSync(target).size === 0) {

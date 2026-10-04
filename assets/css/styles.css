@@ -627,6 +627,220 @@ ul {
   font-size: 13px;
 }
 
+/* Capabilities */
+.section-divided {
+  border-top: 1px solid var(--line);
+}
+
+.pillar {
+  padding: clamp(28px, 3.5vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.pillar h3 {
+  font-size: clamp(22px, 2.4vw, 26px);
+  letter-spacing: -0.02em;
+}
+
+.pillar-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.pillar-list li {
+  display: grid;
+  gap: 2px;
+}
+
+.pillar-item {
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+a.pillar-item {
+  color: var(--brand-ink);
+}
+
+.pillar-desc {
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  justify-self: start;
+}
+
+.ext-link svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.ext-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Marquee: static wrapped list by default; main.js adds the looping copy */
+.marquee {
+  --marquee-gap: 12px;
+  display: grid;
+  gap: var(--marquee-gap);
+  margin-top: clamp(40px, 6vw, 64px);
+}
+
+.marquee-row {
+  display: flex;
+  gap: var(--marquee-gap);
+}
+
+.marquee-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--marquee-gap);
+}
+
+.marquee-track[aria-hidden="true"],
+.marquee-toggle {
+  display: none;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+span.pill::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+a.pill {
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+
+a.pill:hover {
+  border-color: var(--text-2);
+  text-decoration: none;
+}
+
+.marquee-toggle {
+  place-items: center;
+  justify-self: end;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.marquee-toggle:hover {
+  border-color: var(--text-2);
+  color: var(--text);
+}
+
+.marquee-toggle svg {
+  grid-area: 1 / 1;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.marquee-toggle .icon-play {
+  fill: currentColor;
+}
+
+.marquee-toggle[aria-pressed="true"] .icon-pause,
+.marquee-toggle[aria-pressed="false"] .icon-play {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee.is-ready .marquee-toggle {
+    display: grid;
+  }
+
+  .marquee.is-ready .marquee-row {
+    overflow: hidden;
+    padding-block: 4px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .marquee.is-ready .marquee-track {
+    flex: none;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    min-width: 100%;
+    animation: marquee-scroll 48s linear infinite;
+  }
+
+  .marquee.is-ready .marquee-track[aria-hidden="true"] {
+    display: flex;
+  }
+
+  .marquee.is-ready .marquee-reverse .marquee-track {
+    animation-duration: 56s;
+    animation-direction: reverse;
+  }
+
+  .marquee-row:hover .marquee-track,
+  .marquee-row:focus-within .marquee-track,
+  .marquee[data-paused="true"] .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}
+
 /* Process */
 .steps {
   margin: 0;
@@ -639,7 +853,8 @@ ul {
   border-top: 2px solid var(--line);
 }
 
-.step-num {
+.step-num,
+.pillar-num {
   display: block;
   margin-bottom: 16px;
   color: var(--brand-ink);
@@ -944,7 +1159,8 @@ ul {
     transition: none;
   }
 
-  .btn {
+  .btn,
+  .ext-link svg {
     transition: none;
   }
 }
